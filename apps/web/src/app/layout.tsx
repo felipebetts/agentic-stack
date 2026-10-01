@@ -1,22 +1,14 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono, Instrument_Sans } from 'next/font/google'
+import { Inter } from 'next/font/google'
 
 import { cn } from '@/lib/utils'
 
 import './globals.css'
 
-const instrumentSansHeading = Instrument_Sans({
-  subsets: ['latin'],
-  variable: '--font-heading',
-})
-
-const geistSans = Geist({
-  variable: '--font-sans',
-  subsets: ['latin'],
-})
-
-const geistMono = Geist_Mono({
-  variable: '--font-mono',
+// Fallback fora do ecossistema Apple: em macOS/iOS a pilha de fontes em
+// globals.css resolve para a SF Pro do sistema antes de chegar aqui.
+const inter = Inter({
+  variable: '--font-inter',
   subsets: ['latin'],
 })
 
@@ -27,16 +19,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
-    <html
-      lang="pt-BR"
-      className={cn(
-        'h-full',
-        'antialiased',
-        geistSans.variable,
-        geistMono.variable,
-        instrumentSansHeading.variable,
-      )}
-    >
+    <html lang="pt-BR" className={cn('h-full', 'antialiased', inter.variable)}>
       <body className="flex min-h-full flex-col">{children}</body>
     </html>
   )

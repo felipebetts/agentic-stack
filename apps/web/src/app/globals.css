@@ -7,9 +7,16 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-  --font-heading: var(--font-heading);
+  /* SF Pro via fonte do sistema (não é licenciada como webfont); Inter
+     carregada pelo next/font cobre Windows/Android/Linux. */
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', var(--font-inter),
+    system-ui, sans-serif;
+  --font-heading:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Display', var(--font-inter),
+    system-ui, sans-serif;
+  --font-mono:
+    ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -49,72 +56,75 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.148 0.004 228.8);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.148 0.004 228.8);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.148 0.004 228.8);
-  --primary: oklch(0.488 0.243 264.376);
-  --primary-foreground: oklch(0.97 0.014 254.604);
-  --secondary: oklch(0.967 0.001 286.375);
-  --secondary-foreground: oklch(0.21 0.006 285.885);
-  --muted: oklch(0.963 0.002 197.1);
-  --muted-foreground: oklch(0.56 0.021 213.5);
-  --accent: oklch(0.963 0.002 197.1);
-  --accent-foreground: oklch(0.218 0.008 223.9);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.925 0.005 214.3);
-  --input: oklch(0.925 0.005 214.3);
-  --ring: oklch(0.723 0.014 214.4);
-  --chart-1: oklch(0.872 0.007 219.6);
-  --chart-2: oklch(0.56 0.021 213.5);
-  --chart-3: oklch(0.45 0.017 213.2);
-  --chart-4: oklch(0.378 0.015 216);
-  --chart-5: oklch(0.275 0.011 216.9);
+  /* Paleta terrosa: linho/areia como base (nunca branco puro), texto em
+     umbra, musgo como primária, ferrugem como destrutiva. */
+  --background: oklch(0.955 0.008 75);
+  --foreground: oklch(0.27 0.018 55);
+  --card: oklch(0.975 0.006 80);
+  --card-foreground: oklch(0.27 0.018 55);
+  --popover: oklch(0.975 0.006 80);
+  --popover-foreground: oklch(0.27 0.018 55);
+  --primary: oklch(0.47 0.062 135);
+  --primary-foreground: oklch(0.97 0.012 95);
+  --secondary: oklch(0.91 0.016 75);
+  --secondary-foreground: oklch(0.3 0.02 55);
+  --muted: oklch(0.925 0.012 75);
+  --muted-foreground: oklch(0.5 0.02 60);
+  --accent: oklch(0.915 0.016 100);
+  --accent-foreground: oklch(0.27 0.018 55);
+  --destructive: oklch(0.53 0.13 35);
+  --border: oklch(0.885 0.012 70);
+  --input: oklch(0.87 0.013 70);
+  --ring: oklch(0.62 0.05 130);
+  --chart-1: oklch(0.55 0.07 135);
+  --chart-2: oklch(0.72 0.11 80);
+  --chart-3: oklch(0.6 0.1 45);
+  --chart-4: oklch(0.75 0.04 140);
+  --chart-5: oklch(0.42 0.04 55);
   --radius: 0.875rem;
-  --sidebar: oklch(0.987 0.002 197.1);
-  --sidebar-foreground: oklch(0.148 0.004 228.8);
-  --sidebar-primary: oklch(0.546 0.245 262.881);
-  --sidebar-primary-foreground: oklch(0.97 0.014 254.604);
-  --sidebar-accent: oklch(0.963 0.002 197.1);
-  --sidebar-accent-foreground: oklch(0.218 0.008 223.9);
-  --sidebar-border: oklch(0.925 0.005 214.3);
-  --sidebar-ring: oklch(0.723 0.014 214.4);
+  --sidebar: oklch(0.94 0.01 75);
+  --sidebar-foreground: oklch(0.27 0.018 55);
+  --sidebar-primary: oklch(0.47 0.062 135);
+  --sidebar-primary-foreground: oklch(0.97 0.012 95);
+  --sidebar-accent: oklch(0.915 0.016 100);
+  --sidebar-accent-foreground: oklch(0.27 0.018 55);
+  --sidebar-border: oklch(0.885 0.012 70);
+  --sidebar-ring: oklch(0.62 0.05 130);
 }
 
 .dark {
-  --background: oklch(0.148 0.004 228.8);
-  --foreground: oklch(0.987 0.002 197.1);
-  --card: oklch(0.218 0.008 223.9);
-  --card-foreground: oklch(0.987 0.002 197.1);
-  --popover: oklch(0.218 0.008 223.9);
-  --popover-foreground: oklch(0.987 0.002 197.1);
-  --primary: oklch(0.424 0.199 265.638);
-  --primary-foreground: oklch(0.97 0.014 254.604);
-  --secondary: oklch(0.274 0.006 286.033);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.275 0.011 216.9);
-  --muted-foreground: oklch(0.723 0.014 214.4);
-  --accent: oklch(0.275 0.011 216.9);
-  --accent-foreground: oklch(0.987 0.002 197.1);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.56 0.021 213.5);
-  --chart-1: oklch(0.872 0.007 219.6);
-  --chart-2: oklch(0.56 0.021 213.5);
-  --chart-3: oklch(0.45 0.017 213.2);
-  --chart-4: oklch(0.378 0.015 216);
-  --chart-5: oklch(0.275 0.011 216.9);
-  --sidebar: oklch(0.218 0.008 223.9);
-  --sidebar-foreground: oklch(0.987 0.002 197.1);
-  --sidebar-primary: oklch(0.623 0.214 259.815);
-  --sidebar-primary-foreground: oklch(0.97 0.014 254.604);
-  --sidebar-accent: oklch(0.275 0.011 216.9);
-  --sidebar-accent-foreground: oklch(0.987 0.002 197.1);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.56 0.021 213.5);
+  /* Terra escura em vez de quase-preto azulado; musgo clareia para sálvia. */
+  --background: oklch(0.2 0.012 60);
+  --foreground: oklch(0.92 0.015 80);
+  --card: oklch(0.24 0.014 60);
+  --card-foreground: oklch(0.92 0.015 80);
+  --popover: oklch(0.24 0.014 60);
+  --popover-foreground: oklch(0.92 0.015 80);
+  --primary: oklch(0.68 0.07 130);
+  --primary-foreground: oklch(0.2 0.02 130);
+  --secondary: oklch(0.29 0.014 60);
+  --secondary-foreground: oklch(0.92 0.015 80);
+  --muted: oklch(0.28 0.012 60);
+  --muted-foreground: oklch(0.7 0.02 70);
+  --accent: oklch(0.3 0.016 90);
+  --accent-foreground: oklch(0.92 0.015 80);
+  --destructive: oklch(0.68 0.13 35);
+  --border: oklch(0.92 0.02 80 / 10%);
+  --input: oklch(0.92 0.02 80 / 15%);
+  --ring: oklch(0.55 0.05 130);
+  --chart-1: oklch(0.68 0.07 130);
+  --chart-2: oklch(0.76 0.1 80);
+  --chart-3: oklch(0.66 0.1 45);
+  --chart-4: oklch(0.58 0.04 140);
+  --chart-5: oklch(0.82 0.03 70);
+  --sidebar: oklch(0.24 0.014 60);
+  --sidebar-foreground: oklch(0.92 0.015 80);
+  --sidebar-primary: oklch(0.68 0.07 130);
+  --sidebar-primary-foreground: oklch(0.2 0.02 130);
+  --sidebar-accent: oklch(0.3 0.016 90);
+  --sidebar-accent-foreground: oklch(0.92 0.015 80);
+  --sidebar-border: oklch(0.92 0.02 80 / 10%);
+  --sidebar-ring: oklch(0.55 0.05 130);
 }
 
 @layer base {
@@ -124,7 +134,15 @@
   body {
     @apply bg-background text-foreground;
   }
+  ::selection {
+    @apply bg-primary/20 text-foreground;
+  }
   html {
-    @apply font-mono;
+    @apply font-sans;
+    font-optical-sizing: auto;
+  }
+  /* Tracking negativo nos títulos, como a SF Pro Display. */
+  .font-heading {
+    letter-spacing: -0.015em;
   }
 }

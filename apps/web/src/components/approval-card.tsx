@@ -31,7 +31,9 @@ export function ApprovalCard({ interrupt, disabled, onDecide }: Props) {
   const action = request ? ACTIONS[request.action] : undefined
 
   return (
-    <Card className="border-primary/40 ring-primary/30" role="group">
+    // Borda (dentro da caixa) em vez do ring do Card: o ring é box-shadow
+    // externo e o overflow do MessageScroller corta ele nas laterais.
+    <Card className="border-primary/40 border ring-0" role="group">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <RiShieldCheckLine className="size-4" aria-hidden />

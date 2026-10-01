@@ -12,7 +12,9 @@
   - `@custom-variant dark (&:is(.dark *))` — define o dark mode como uma classe (`.dark` em um ancestral), não `prefers-color-scheme`.
   - Bloco `@theme inline { ... }` — mapeia tokens de design (`--color-primary`, `--radius-lg`, `--color-sidebar`, etc.) para variáveis CSS, permitindo usar classes como `bg-primary`, `text-muted-foreground`, `rounded-xl` etc. com base nos valores definidos em `:root`/`.dark`.
   - `:root { ... }` e `.dark { ... }` — os valores reais dos tokens, em `oklch(...)`, um por tema. Trocar o tema visual do projeto é editar essas variáveis, não trocar classes utilitárias espalhadas pelo código.
-  - `@layer base` aplica `border-border`, `outline-ring/50`, `bg-background`, `text-foreground` e `font-mono` globalmente — a fonte base do projeto é mono (`--font-mono` / `font-heading` também disponível para títulos).
+  - **Paleta (terrosa, sem branco puro):** fundo linho/areia (`--background` ≈ `#F3EFEA`), cards um tom de papel mais claro (`--card` ≈ `#F9F6F2`) — a hierarquia vem da luminosidade, não de sombra —, texto em umbra (`--foreground` ≈ `#2E241E`, nunca preto), primária musgo (`--primary` ≈ `#4C633F`), destrutiva ferrugem e gráficos em musgo/ocre/argila/sálvia/umbra. O `.dark` segue a mesma família (terra escura + sálvia). Todos os pares texto/fundo passam WCAG AA (≥ 4.5:1); confira o contraste ao mexer nesses valores.
+  - `@layer base` aplica `border-border`, `outline-ring/50`, `bg-background`, `text-foreground` e `font-sans` globalmente.
+  - **Tipografia estilo Apple:** `--font-sans`/`--font-heading` apontam para a fonte do sistema (`-apple-system`, `SF Pro Text`/`SF Pro Display`) — a SF Pro não tem licença de webfont, então em macOS/iOS o navegador usa a do sistema e nos demais cai na Inter, carregada via `next/font` em `layout.tsx` como `--font-inter`. `--font-mono` é `ui-monospace`/SF Mono. `.font-heading` ganha tracking levemente negativo (-0.015em), como a SF Pro Display.
 
 ## Configuração do shadcn (`components.json`)
 
