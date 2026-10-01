@@ -1,0 +1,9 @@
+{$AGENT_DOMAIN} {
+	# Sem `encode`: compressão bufferiza SSE.
+	reverse_proxy agent:8000 {
+		flush_interval -1
+		transport http {
+			read_timeout 10m
+		}
+	}
+}

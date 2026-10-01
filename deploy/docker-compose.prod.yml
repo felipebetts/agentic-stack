@@ -1,0 +1,26 @@
+# VPS (Hetzner, DO, etc). Postgres externo (gerenciado ou próprio).
+# Deploy: docker compose -f docker-compose.prod.yml pull && docker compose -f docker-compose.prod.yml up -d
+services:
+  agent:
+    image: ghcr.io/${GH_REPO}/agent:${AGENT_TAG:-latest}
+    env_file: ./agent.env
+    restart: unless-stopped
+    expose: ["8000"]
+    deploy:
+      replicas: 1   # pode subir; locks e estado estão no Postgres
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports: ["80:80", "443:443"]
+    environment:
+      AGENT_DOMAIN: ${AGENT_DOMAIN}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on: [agent]
+
+volumes:
+  caddy_data:
+  caddy_config:

@@ -1,0 +1,5 @@
+.next
+node_modules
+designs
+# Gerado por `make contract` (openapi-typescript); não formatar
+src/lib/agent/schema.d.ts

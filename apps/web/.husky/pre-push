@@ -1,0 +1,7 @@
+cd apps/web
+
+echo "🧪 Executando testes antes do push..."
+
+pnpm test
+
+echo "✅ Todos os testes passaram! Push permitido."
